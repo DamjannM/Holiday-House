@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.9;
+  background-color: #f3f3f3;
+  height: 100%;
+}
+gmp-map {
+  height: 90%;
+  width: 50%;
+  display: block;
+  margin-left: 25%;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
+}
+
+.nav__links {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+.nav__item {
+  margin-left: 2rem;
+}
+.nav__link {
+  padding: 0.5rem;
+  border: solid 1px #e7e7e7;
+  border-radius: 10rem;
+  text-decoration: none;
+  color: #444;
+  background-color: #efe2ff;
+}

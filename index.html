@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Holiday House</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=KEY&callback=console.debug&libraries=maps,marker&v=beta"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <ul class="nav__links">
+          <li class="nav__item"><a class="nav__link" href="#">O nama</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Lokacija</a></li>
+          <li class="nav__item">
+            <a class="nav__link" href="#">Rezervacije</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <gmp-map center="43.961016, 19.398882" zoom="14" map-id="DEMO_MAP_ID">
+      <gmp-advanced-marker
+        position="43.961016, 19.398882"
+        title="My location"
+      ></gmp-advanced-marker>
+    </gmp-map>
+  </body>
+</html>
