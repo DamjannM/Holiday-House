@@ -14,7 +14,7 @@
     />
     <script
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=KEY&callback=console.debug&libraries=maps,marker&v=beta"
+      src="https://maps.googleapis.com/maps/api/js?key=KEY2OQ&callback=console.debug&libraries=maps,marker&v=beta"
     ></script>
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
@@ -30,7 +30,7 @@
             <a class="nav__link" href="#gmp">Lokacija</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#">Rezervacije</a>
+            <a class="nav__link" href="#wrapper">Rezervacije</a>
           </li>
         </ul>
       </nav>
@@ -60,7 +60,7 @@
         title="My location"
       ></gmp-advanced-marker>
     </gmp-map>
-    <div class="wrapper">
+    <div class="wrapper" id="wrapper">
       <div class="date">
         <p class="current-date">Januar 2025</p>
         <div class="icons">
@@ -80,6 +80,93 @@
         </ul>
         <ul class="days"></ul>
       </div>
+      <button id="open">Open</button>
+      <button id="reserved">Reserve</button>
+    </div>
+
+    <div class="form">
+      <form action="">
+        <div>
+          <label for="fname">First Name: </label>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            required
+            placeholder="First Name"
+          />
+          <br />
+        </div>
+        <div>
+          <label for="lname">Last Name: </label>
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            required
+            placeholder="Last Name"
+          />
+          <br />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="example@gmail.com"
+          />
+          <br />
+        </div>
+        <div>
+          <label for="phone">Phone:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            placeholder="(+381)60-1234567"
+          />
+          <br />
+        </div>
+        <div>
+          <label for="guestnum">Number of guests</label>
+          <input
+            type="number"
+            id="guestnum"
+            name="guestnum"
+            required
+            min="1"
+            max="6"
+            value="1"
+          />
+          <br />
+        </div>
+        <div>
+          <label for="dayin">Check-in date</label>
+          <input
+            type="text"
+            id="dayin"
+            name="dayin"
+            required
+            placeholder="dd/mm/yyyy"
+          />
+          <br />
+        </div>
+        <div>
+          <label for="dayout">Check-out date</label>
+          <input
+            type="text"
+            id="dayout"
+            name="dayout"
+            required
+            placeholder="dd/mm/yyyy"
+          /><br />
+        </div>
+
+        <input type="submit" />
+      </form>
     </div>
   </body>
 </html>

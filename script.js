@@ -24,10 +24,9 @@ const currentDate = document.querySelector(".current-date");
 daysTag = document.querySelector(".days");
 prevNextIcon = document.querySelectorAll(".icons span");
 
-let date = new Date();
-currYear = date.getFullYear();
-currMonth = date.getMonth();
-
+let date = new Date(),
+  currYear = date.getFullYear(),
+  currMonth = date.getMonth();
 const months = [
   "January",
   "February",
@@ -42,12 +41,30 @@ const months = [
   "November",
   "December",
 ];
-
+let selectedDate = null;
+let bookedArr = [];
+getBooking();
+const addListener = function () {
+  const day = document.querySelectorAll(".datum");
+  day.forEach((cell) => {
+    cell.addEventListener("click", function () {
+      if (this.classList.contains("selected")) {
+        this.classList.remove("selected");
+      } else {
+        day.forEach((c) => c.classList.remove("selected"));
+        this.classList.add("selected");
+      }
+      console.log(cell);
+      selectedDate = cell.textContent;
+      console.log(selectedDate);
+    });
+  });
+};
 const renderCalendar = () => {
-  let firstDayofMonth = new Date(currYear, currMonth, 0).getDay(); //getting first day of month
-  lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(); //getting last date of month
-  lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(); //getting last day of month
-  lastDayofLastMonth = new Date(currYear, currMonth, 0).getDate(); //getting last date of previous month
+  let firstDayofMonth = new Date(currYear, currMonth, 0).getDay(), //getting first day of month
+    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), //getting last date of month
+    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), //getting last day of month
+    lastDayofLastMonth = new Date(currYear, currMonth, 0).getDate(); //getting last date of previous month
   let liTag = "";
 
   // creating li of last days of previous month
@@ -63,7 +80,11 @@ const renderCalendar = () => {
       currYear === new Date().getFullYear()
         ? "active"
         : "";
-    liTag += `<li class="${isToday}">${i}</li>`;
+    if (bookedArr.includes(`${i}-${currMonth}-${currYear}`)) {
+      liTag += `<li class="${isToday} datum ${i} booked">${i}</li>`;
+    } else {
+      liTag += `<li class="${isToday} datum ${i}">${i}</li>`;
+    }
   }
 
   // creating li of next month first days
@@ -73,9 +94,10 @@ const renderCalendar = () => {
 
   currentDate.innerHTML = `${months[currMonth]} ${currYear}`;
   daysTag.innerHTML = liTag;
+  addListener();
 };
 renderCalendar();
-
+//Previous and Next month buttons for calendar render
 prevNextIcon.forEach((icon) => {
   icon.addEventListener("click", () => {
     currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
@@ -90,3 +112,34 @@ prevNextIcon.forEach((icon) => {
     renderCalendar();
   });
 });
+
+// ADMIN BUTTONS
+const reserveButton = document.querySelector("#reserved");
+reserveButton.addEventListener("click", function () {
+  daySelected = document.querySelector(".selected");
+  daySelected.classList.add("booked");
+  daySelected.classList.remove("selected");
+  bookedArr.push(`${selectedDate}-${currMonth}-${currYear}`);
+  saveBooking();
+});
+const openButton = document.querySelector("#open");
+openButton.addEventListener("click", function () {
+  daySelected = document.querySelector(".selected");
+  daySelected.classList.remove("booked");
+  daySelected.classList.remove("selected");
+  const index = bookedArr.indexOf(`${selectedDate}-${currMonth}-${currYear}`);
+  bookedArr.splice(index, 1);
+  saveBooking();
+});
+
+// LOCAL STORAGE FOR CALENDAR
+function saveBooking() {
+  localStorage.setItem("booking", JSON.stringify(bookedArr));
+}
+function getBooking() {
+  //check if events are already saved in local storage then return event else nothing
+  if (localStorage.getItem("booking") === null) {
+    return;
+  }
+  bookedArr.push(...JSON.parse(localStorage.getItem("booking")));
+}

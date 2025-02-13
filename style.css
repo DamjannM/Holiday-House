@@ -30,6 +30,9 @@ gmp-map {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url(slike/1.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .nav {
@@ -72,13 +75,15 @@ gmp-map {
 
 /* CALENDAR */
 .wrapper {
-  margin-left: 25%;
-  display: block;
+  margin-left: 10%;
+  margin-bottom: 10%;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   width: 450px;
   background: #fff;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 
 .wrapper .date {
@@ -154,5 +159,54 @@ gmp-map {
 }
 .days li.active::before {
   background: #9b59b6;
+  border: solid 3px #9b59b6;
+}
+.days li.selected::before {
+  background: #ebb7ff !important;
+  /* pointer-events: none; */
 }
 /* END OF CALENDAR */
+
+/* FORM */
+.form {
+  display: inline-flex;
+  margin-left: 10%;
+  box-sizing: border-box;
+  vertical-align: top;
+  /* align-items: center;
+  justify-content: center;
+  background: #c2b0b0; */
+}
+
+.form input {
+  border: none;
+  border-radius: 20px;
+  width: 150px;
+  height: 30px;
+  margin: 10px 0px 10px;
+  padding: 10px 10px 10px 10px;
+  font-size: 15px;
+}
+.form input[type="submit"] {
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+#reserved,
+#open {
+  font-size: 15px;
+  border: solid 2px #e7e7e7;
+  border-radius: 20px;
+  padding: 5px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.booked::before {
+  content: "";
+  color: #fff;
+  background: #ff6161 !important;
+  pointer-events: none !important;
+}
