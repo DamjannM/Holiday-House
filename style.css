@@ -30,9 +30,9 @@ gmp-map {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(slike/1.jpg);
+  /* background-image: url(slike/1.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 }
 
 .nav {
