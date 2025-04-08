@@ -13,6 +13,10 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <script
+      src="https://kit.fontawesome.com/0220a577c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
       defer
       src="https://maps.googleapis.com/maps/api/js?key=KEY&callback=console.debug&libraries=maps,marker&v=beta"
     ></script>
@@ -24,27 +28,54 @@
       <nav class="nav">
         <ul class="nav__links">
           <li class="nav__item">
-            <a class="nav__link" href="#about__us">O nama</a>
+            <b><a class="nav__link" href="#about__us">O nama</a></b>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#gmp">Lokacija</a>
+            <b><a class="nav__link" href="#gmp">Lokacija</a></b>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#wrapper">Rezervacije</a>
+            <b><a class="nav__link" href="#wrapper">Rezervacije</a></b>
           </li>
         </ul>
+        <div id="login">
+          <input type="text" placeholder="ADMIN" class="login" id="admin" />
+          <input type="password" placeholder="PIN" class="login" id="pin" />
+          <button class="login__btn">&rarr;</button>
+          <button class="logout__btn hidden">Log Out</button>
+        </div>
       </nav>
       <section id="about__us">
-        <p class="about__us">
-          Holiday House splav sagradjen je 2021. godine i nalazi se na jezeru
-          Perucac na planini Tara. Lorem Ipsum is simply dummy text of the
-          printing and typesetting industry. Lorem Ipsum has been the industry's
-          standard dummy text ever since the 1500s, when an unknown printer took
-          a galley of type and scrambled it to make a type specimen book. It has
-          survived not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem
-        </p>
+        <div class="about__us">
+          <div class="info">
+            <i class="fa-regular fa-calendar fa-lg" style="color: #b197fc"></i>
+            <b>Check-in od 12h, Chek-out do 10h</b>
+            <i class="fa-solid fa-euro-sign fa-lg" style="color: #b197fc"></i>
+            <b>Cena: Pon-Cet: 160€, Pet-Ned: 180€</b>
+            <br />
+            <i class="fa-solid fa-person fa-lg" style="color: #b197fc"></i>
+            <b>Broj gostiju: max 6</b>
+            <i class="fa-solid fa-dog fa-lg" style="color: #b197fc"></i>
+            <b>Pet friendly</b>
+            <i class="fa-solid fa-wifi fa-lg" style="color: #b197fc"></i>
+            <b>Free wi-fi</b>
+            <i class="fa-solid fa-plug fa-lg" style="color: #b197fc"></i>
+            <b>Struja na solarne panele</b>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="slide">
+            <img src="slike/splav3.png" />
+          </div>
+          <div class="slide">
+            <img src="slike/splav1.png" />
+          </div>
+          <div class="slide">
+            <img src="slike/splav2.png" />
+          </div>
+          <button class="slider__btn slider__btn--left">&larr;</button>
+          <button class="slider__btn slider__btn--right">&rarr;</button>
+          <div class="dots"></div>
+        </div>
       </section>
     </header>
 
